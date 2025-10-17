@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package chat;
+
+// The chat service definition.
+service ChatService {
+  // Sends a message
+  rpc SendMessage (ChatMessage) returns (ChatResponse);
+  // Server streaming for new messages
+  rpc StreamMessages (Empty) returns (stream ChatMessage);
+}
+
+message ChatMessage {
+  string user = 1;
+  string text = 2;
+}
+
+message ChatResponse {
+  string status = 1;
+}
+
+message Empty {}

@@ -6,7 +6,9 @@ import Polling from './protocols/2polling.jsx'
 import LongPolling from './protocols/3LongPolling.jsx'
 import WebSocket from './protocols/4Websocket.jsx'
 import SocketIOChat from './protocols/5Socket.io.jsx'
-
+// import ChatGrpc from './protocols/6grpc.jsx'
+import Webrtc from './protocols/7webrtc.jsx'
+import Graphql from './protocols/8graphql.jsx'
 function App() {
   const [activeTab, setActiveTab] = useState('Polling')
 
@@ -16,6 +18,9 @@ function App() {
     { name: 'LongPolling', component: <LongPolling /> },
     { name: 'WebSocket', component: <WebSocket /> },
     { name: 'SocketIO', component: <SocketIOChat /> },
+    // { name: 'gRPC', component: <ChatGrpc /> },
+    { name: 'WebRTC', component: <Webrtc /> },
+    { name: 'GraphQL', component: <Graphql /> },
   ]
 
   return (
