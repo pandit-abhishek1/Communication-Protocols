@@ -27,15 +27,15 @@ flowchart LR
   end
 
   subgraph Edge
-    CDN[CDN/Edge Cache]
-    WAF[WAF/Firewall]
-    LB[Load Balancer/Ingress]
+    CDN["CDN/Edge Cache"]
+    WAF["WAF/Firewall"]
+    LB["Load Balancer/Ingress"]
   end
 
   subgraph GraphQL
-    GW[GraphQL Gateway<br/>(Apollo/Helix/Yoga)]
-    DLoader[Dataloader/Batching]
-    Cache[(Response Cache/Query Cache)]
+    GW["GraphQL Gateway<br/>(Apollo/Helix/Yoga)"]
+    DLoader["Dataloader/Batching"]
+    Cache["(Response Cache/Query Cache)"]
   end
 
   subgraph Backends

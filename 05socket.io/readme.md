@@ -73,24 +73,28 @@ Notes:
 
 ```mermaid
 sequenceDiagram
-  participant C as Client (Browser/App)
-  participant E as Edge/LB
-  participant S as Socket.IO Server (Engine.IO)
+    participant C as Client (Browser/App)
+    participant E as Edge/LB
+    participant S as Socket.IO Server (Engine.IO)
 
-  Note over C,S: Step 1: Create Engine.IO session via HTTP polling
-  C->>E: GET /socket.io/?EIO=4&transport=polling
-  E->>S: Proxy
-  S-->>E: 200 OK [{"sid":"abc123","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":20000}, ...]
-  E-->>C: 200 OK (Set-Cookie if used)
+    Note over C,S: Step 1: Create Engine.IO session via HTTP polling
+    C->>E: GET /socket.io/?EIO=4&transport=polling
+    E->>S: Proxy
+    S-->>E: 200 OK [{"sid":"abc123","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":20000}, ...]
+    E-->>C: 200 OK (Set-Cookie if used)
 
-  Note over C,S: Step 2: Attempt WebSocket upgrade
-  C->>E: GET /socket.io/?EIO=4&transport=websocket&sid=abc123 (Upgrade: websocket)
-  E-->>C: 101 Switching Protocols
-  Note over C,S: Transport upgraded; future frames over WebSocket
+    %% Add a blank line before a new Note or section
+    Note over C,S: Step 2: Attempt WebSocket upgrade
+    C->>E: GET /socket.io/?EIO=4&transport=websocket&sid=abc123 (Upgrade: websocket)
+    E-->>C: 101 Switching Protocols
 
-  Note over C,S: Heartbeats
-  C-->>S: ping
-  S-->>C: pong
+    %% Another blank line before next Note
+    Note over C,S: Transport upgraded — future frames over WebSocket
+
+    Note over C,S: Heartbeats
+    C-->>S: ping
+    S-->>C: pong
+
 ```
 
 ### 2) Socket.IO Connect to Namespace and Emit with Acknowledgement

@@ -21,15 +21,15 @@ Avoid when:
 ```mermaid
 flowchart LR
   subgraph Clients
-    A[Peer A (Browser/App)]
-    B[Peer B (Browser/App)]
+    A["Peer A (Browser/App)"]
+    B["Peer B (Browser/App)"]
   end
 
   subgraph Infra
-    Sig[Signaling Server<br/>(WebSocket/HTTP)]
-    STUN[STUN Server]
-    TURN[TURN Relay]
-    SFU[SFU (Selective Forwarding Unit)]
+    Sig["Signaling Server<br/>(WebSocket/HTTP)"]
+    STUN["STUN Server"]
+    TURN["TURN Relay"]
+    SFU["SFU (Selective Forwarding Unit)"]
   end
 
   A<-->Sig
@@ -115,21 +115,24 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-  participant A as Peer A
-  participant SFU as SFU
-  participant B as Peer B
+    participant A as Peer A
+    participant SFU as SFU
+    participant B as Peer B
 
-  A->>SFU: Offer (sendonly)
-  SFU-->>A: Answer (recvonly)
-  B->>SFU: Offer (sendrecv)
-  SFU-->>B: Answer (sendrecv)
+    A->>SFU: Offer (sendonly)
+    SFU-->>A: Answer (recvonly)
+    B->>SFU: Offer (sendrecv)
+    SFU-->>B: Answer (sendrecv)
 
-  Note over A,SFU,B: ICE/DTLS on each peer<->SFU connection
+    %% Use one or two notes instead of three-participant note
+    Note over A,SFU: ICE/DTLS handshake on each Peer ↔ SFU connection
+    Note over SFU,B: ICE/DTLS handshake on each Peer ↔ SFU connection
 
-  A-->>SFU: SRTP uplink (simulcast/SVC)
-  SFU-->>B: SRTP downlink (selected layer)
-  B-->>SFU: SRTP uplink
-  SFU-->>A: SRTP downlink
+    A-->>SFU: SRTP uplink (simulcast/SVC)
+    SFU-->>B: SRTP downlink (selected layer)
+    B-->>SFU: SRTP uplink
+    SFU-->>A: SRTP downlink
+
 ```
 
 ## Reliability and QoS

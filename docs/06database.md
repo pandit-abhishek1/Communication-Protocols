@@ -50,7 +50,7 @@ Ports (defaults):
 flowchart LR
   subgraph AppTier[Application Tier]
     A[App Service]
-    Pool[Connection Pool<br/>(Hikari/pgBouncer/ProxySQL)]
+    Pool["Connection Pool<br/>(Hikari/pgBouncer/ProxySQL)"]
   end
 
   subgraph Edge[Optional Proxies/Gateways]
