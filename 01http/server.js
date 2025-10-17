@@ -15,5 +15,5 @@ app.get('/http', (req, res) => {
   res.json({ timestamp: new Date().toLocaleString(), data });
 });
 app.listen(port, () => {
-  console.log(`Polling server running at http://localhost:${port}`);
+  console.log(`HTTP server running at http://localhost:${port}`);
 });

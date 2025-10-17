@@ -13,8 +13,8 @@ const Polling = () => {
         });
     }
 
-    // Poll every 6 seconds
-    const intervalId = setInterval(pollServer, 6000);
+    // Poll every 16 seconds
+    const intervalId = setInterval(pollServer, 16000);
 
   return (
     <div>

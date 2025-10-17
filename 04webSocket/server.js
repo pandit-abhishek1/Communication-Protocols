@@ -28,4 +28,4 @@ wss.on('connection', function connection(ws) {
   });
 });
 
-console.log('WebSocket server running on ws://localhost:3001');
+console.log('WebSocket server running on ws://localhost:3004');

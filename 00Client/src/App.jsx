@@ -1,18 +1,20 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import Polling from './protocols/1polling.jsx'
-import LongPolling from './protocols/2LongPolling.jsx'
-import Websocket from './protocols/3Websocket.jsx'
-import SocketIo from './protocols/4Socket.io.jsx'
+import Http from './protocols/1http.jsx'
+import Polling from './protocols/2polling.jsx'
+import LongPolling from './protocols/3LongPolling.jsx'
+import WebSocket from './protocols/4Websocket.jsx'
+import SocketIo from './protocols/5Socket.io.jsx'
 
 function App() {
   const [activeTab, setActiveTab] = useState('Polling')
 
   const tabs = [
+    { name: 'HTTP', component: <Http /> },
     { name: 'Polling', component: <Polling /> },
     { name: 'LongPolling', component: <LongPolling /> },
-    { name: 'Websocket', component: <Websocket /> },
+    { name: 'WebSocket', component: <WebSocket /> },
     { name: 'SocketIo', component: <SocketIo /> },
   ]
 
