@@ -5,7 +5,7 @@ import Http from './protocols/1http.jsx'
 import Polling from './protocols/2polling.jsx'
 import LongPolling from './protocols/3LongPolling.jsx'
 import WebSocket from './protocols/4Websocket.jsx'
-import SocketIo from './protocols/5Socket.io.jsx'
+import SocketIOChat from './protocols/5Socket.io.jsx'
 
 function App() {
   const [activeTab, setActiveTab] = useState('Polling')
@@ -15,7 +15,7 @@ function App() {
     { name: 'Polling', component: <Polling /> },
     { name: 'LongPolling', component: <LongPolling /> },
     { name: 'WebSocket', component: <WebSocket /> },
-    { name: 'SocketIo', component: <SocketIo /> },
+    { name: 'SocketIO', component: <SocketIOChat /> },
   ]
 
   return (
