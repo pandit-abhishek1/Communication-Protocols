@@ -7,7 +7,8 @@ app.use(cors());
 // Simulated "new data" event (for demo purposes)
 let lastData = null;
 function generateData() {
-  lastData = { timestamp: new Date().toISOString(), value: Math.random() };
+  const arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+  lastData = {  value: arr[Math.floor(Math.random() * arr.length)] };
 }
 setInterval(generateData, 10000); // New data every 10 seconds
 
@@ -17,7 +18,7 @@ app.get('/longpoll', (req, res) => {
 
   function checkForData() {
     if (lastData) {
-      res.json(lastData);
+      res.json({ timestamp: new Date().toLocaleString(), data: lastData.value });
       lastData = null; // Clear after sending
     } else if (Date.now() - startTime > timeout) {
       res.status(204).end(); // No content (timeout)

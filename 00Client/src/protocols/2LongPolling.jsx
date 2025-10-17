@@ -16,7 +16,7 @@ const LongPolling = () => {
         }
         const data = await response.json();
         if (isMounted) {
-          setResult(`Timestamp: ${data.timestamp}, Value: ${data.value}`);
+          setResult(`Timestamp: ${data.timestamp}, Value: ${data.data}`);
           longPoll(); // Start next poll immediately
         }
       } catch (err) {
