@@ -24,7 +24,7 @@ sequenceDiagram
   participant B as Service B (Server)
 
   A->>B: TCP connect
-  <!-- A->>B: TLS 1.3 handshake (mTLS; ALPN: h2) -->
+  A->>B: TLS 1.3 handshake (mTLS: ALPN: h2)
   Note over A,B: HTTP/2 connection established (multiplexed)
 
   A->>B: HEADERS :method=POST :path=/orders.Orders/Get

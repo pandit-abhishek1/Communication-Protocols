@@ -137,7 +137,7 @@ sequenceDiagram
   participant C as Client
   participant S as Server
 
-  Note over C,S: Missed heartbeats; transport closed
+  Note over C,S: Missed heartbeats: transport closed
   C->>C: Reconnect with backoff (e.g., 1s, 2s, 4s... max)
   C->>S: GET /socket.io/?EIO=4&transport=polling (new attempt)
   S-->>C: 200 OK {sid:"newSid", ...}
