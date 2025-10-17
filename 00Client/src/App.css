@@ -4,6 +4,33 @@
   padding: 2rem;
   text-align: center;
 }
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 2px solid transparent;
+  color: #888;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.tab-btn:hover {
+  color: #61dafb;
+}
+
+.tab-btn.active {
+  border-color: #61dafb;
+  color: #61dafb;
+  font-weight: 600;
+}
 
 .logo {
   height: 6em;

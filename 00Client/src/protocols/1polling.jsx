@@ -1,12 +1,12 @@
 import React ,{use, useEffect, useState} from 'react'
 
 const Polling = () => {
-const [polling, setPolling] = useState(0);
+    const [polling, setPolling] = useState('No data yet');
      function pollServer() {
       fetch('http://localhost:3000/poll')
         .then(response => response.json())
         .then(data => {
-          setPolling(`polling:${polling} Timestamp: ${data.timestamp}, Data: ${data.data}`);
+          setPolling(`Timestamp: ${data.timestamp}, Data: ${data.data}`);
         })
         .catch(err => {
           setPolling('Error: ' + err);
@@ -14,10 +14,7 @@ const [polling, setPolling] = useState(0);
     }
 
     // Poll every 6 seconds
-setInterval(() => setPolling(polling + 1), 16000);
-useEffect(() => {
-    pollServer();
-  }, [polling]);
+    const intervalId = setInterval(pollServer, 6000);
 
   return (
     <div>
