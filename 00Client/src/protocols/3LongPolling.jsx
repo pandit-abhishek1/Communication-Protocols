@@ -8,7 +8,7 @@ const LongPolling = () => {
 
     const longPoll = async () => {
       try {
-        const response = await fetch("http://localhost:3001/longpoll");
+        const response = await fetch("http://localhost:3003/longpoll");
         if (response.status === 204) {
           // No new data, poll again
           if (isMounted) longPoll();

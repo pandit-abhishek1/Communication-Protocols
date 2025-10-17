@@ -3,7 +3,7 @@ import React ,{use, useEffect, useState} from 'react'
 const Polling = () => {
     const [polling, setPolling] = useState('No data yet');
      function pollServer() {
-      fetch('http://localhost:3000/poll')
+      fetch('http://localhost:3002/poll')
         .then(response => response.json())
         .then(data => {
           setPolling(`Timestamp: ${data.timestamp}, Data: ${data.data}`);
